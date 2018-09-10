@@ -22,4 +22,4 @@ const TaskSchema = new goose.Schema({
 },{timestamps : true})
 
 const Tasks = goose.model('People', TaskSchema);
-module.exports = {Tasks};
+module.exports = Tasks;
