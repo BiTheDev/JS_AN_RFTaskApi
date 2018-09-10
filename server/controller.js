@@ -9,20 +9,20 @@ const Tasks = require("./model.js");
 
 module.exports = {
     home : (req,res) => Tasks.find({})
-                        .then(data => res.json(data))
-                        .catch(errs => res.json(errs)),
+                        .then(data => console.log("root error")||res.json(data))
+                        .catch(errs => console.log("root success")||res.json(errs)),
     getTask : (req,res) => Tasks.find({_id : req.params.id})
-                            .then(data => res.json(data))
-                            .catch(errs => res.json(errs)),
+                            .then(data => console.log("getTask error")||res.json(data))
+                            .catch(errs => console.log("getTask success")||res.json(errs)),
     createTask : (req,res) => Tasks.create(req.body)
-                                .then(data => res.json(data))
-                                .catch(errs => res.json(errs)),
+                                .then(data => console.log("createTask error")||res.json(data))
+                                .catch(errs => console.log("createTask success")||res.json(errs)),
     updateTask : (req,res) => Tasks.update({_id: req.params.id},{$set : req.body})
-                                .then(data => res.json(data))
-                                .catch(errs => res.json(errs)),
+                                .then(data => console.log("updateTask error")||res.json(data))
+                                .catch(errs => console.log("updateTask success")||res.json(errs)),
     removeTask : (req,res) => Tasks.remove({_id : req.params.id})
-                                .then(data => res.json(data))
-                                .catch(errs => res.json(errs))
+                                .then(data => console.log("removeTask error")||res.json(data))
+                                .catch(errs => console.log("removeTask success")||res.json(errs))
                                 
 }
 
