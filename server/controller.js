@@ -8,7 +8,8 @@ const Tasks = require("./model.js");
 // }
 
 module.exports = {
-    home : (req,res) => Tasks.find({})
+    home :(req,res) => Tasks.console.log("I am home"),
+    allTasks : (req,res) => Tasks.find({})
                         .then(data => console.log("root success")||res.json(data))
                         .catch(errs => console.log("root error")||res.json(errs)),
     getTask : (req,res) => Tasks.find({_id : req.params.id})

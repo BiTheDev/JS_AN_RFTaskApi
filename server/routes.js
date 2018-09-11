@@ -1,12 +1,13 @@
-const {home,getTask,createTask,updateTask,removeTask} = require("./controller.js");
+const Tasks = require("./controller.js");
 
 function router(app)
 {
-    app.get('/',home);
-    app.get('/:id/',getTask);
-    app.post('/new/',createTask);
-    app.put('/update/:id', updateTask);
-    app.delete('/remove/:id/', removeTask);
+    app.get('/',Tasks.home)
+    app.get('/tasks/',Tasks.allTasks);
+    app.get('/tasks/:id/',Tasks.getTask);
+    app.post('/tasks/new/',Tasks.createTask);
+    app.put('/tasks/update/:id', Tasks.updateTask);
+    app.delete('/tasks/remove/:id/', Tasks.removeTask);
 }
 
 module.exports = router;
